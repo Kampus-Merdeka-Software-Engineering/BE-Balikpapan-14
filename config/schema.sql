@@ -19,6 +19,15 @@ CREATE TABLE IF NOT EXISTS campus (
   telp VARCHAR(255) NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS leaderboard (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama VARCHAR(255) NOT NULL,
+    nilai INT NOT NULL
+);
+
 -- ===================================
 INSERT INTO mahasiswa (nama, nim, username, email, password) VALUES
 ('icanq', '15/379093/TK/43035', 'icanq', 'icanq@hotmail.com', 'f9uopasidfhilashdfiuash');
+
+INSERT INTO leaderboard (nama, nilai) VALUES
+('salz', '90');
