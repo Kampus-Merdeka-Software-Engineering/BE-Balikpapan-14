@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const { leaderboardRoute } = require('./routes/index.routes')
+const { lessonsRoute } = require('./routes/lesson.routes')
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -13,6 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // rute untuk leaderboard
 app.use("/leaderboard", leaderboardRoute)
+app.use("/lessons", lessonsRoute)
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)

@@ -15,3 +15,9 @@ model Leaderboard {
   nama      String   
   nilai     Int
 }
+
+model Lessons {
+  id      Int      @id @default(autoincrement())
+  img      String   
+  nama     String
+}
