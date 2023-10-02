@@ -53,3 +53,10 @@ Route -> Controller -> Service
 5. dari controller akan memanggil service, jadi nanti flownya kira kira
 
 Route -> Controller -> Service -> Controller
+
+mysql:
+1. 
+
+Terminal Code:
+1. npm init --yes
+2. npm install express mysql2 dotenv cors
