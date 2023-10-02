@@ -18,6 +18,15 @@ model Leaderboard {
 
 model Lessons {
   id      Int      @id @default(autoincrement())
-  img      String   
-  nama     String
+  image      String   
+  module     String
+}
+
+model Profile {
+  id      Int      @id @default(autoincrement())
+  full_name      String   
+  module     String
+  nisn String
+  birthdate DateTime
+  email String
 }
