@@ -1,10 +1,8 @@
-const express = require('express');
-const lessonsController = require('../controllers/lesson.controller')
+const express= require('express');
+const {pool}= require('../config/database');
+const {getAllLessons}= require('../controllers/lesson.controller');
+const lessonsRoute= express.Router();
 
-const lessonsRoute = express.Router();
+lessonsRoute.get('/lessons', getAllLessons)
 
-lessonsRoute.get('/', lessonsController.getAllLessons)
-lessonsRoute.post('/', lessonsController.createLessons)
-lessonsRoute.get('/:id', lessonsController.getLessonsById)
-
-module.exports = { lessonsRoute }
+module.exports= {lessonsRoute}
