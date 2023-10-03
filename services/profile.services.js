@@ -27,4 +27,16 @@ const createProfile = async (profile) => {
     }
     }
 
-module.exports= {getAllProfile, createProfile}
+const getProfileById = async (id) => {
+    const connection = await pool.getConnection()
+    try {
+        const [profile] = await connection.query ('SELECT*FROM profile WHERE id= ?', [id]);
+        return profile
+    } catch (error) {
+        return error
+    } finally {
+        connection.release()
+    }
+}
+
+module.exports= {getAllProfile, createProfile, getProfileById}

@@ -17,4 +17,13 @@ const createProfile = async(req, res) => {
     })
 }
 
-module.exports= {getAllProfile, createProfile}
+const getProfileById = async (req, res) => {
+    const [profile] = await profileService.getProfileById(req.params.id)
+    if (!profile) res.status(404).json({message: "Data tidak ditemukan"})
+    res.status(200).json({
+        message: "Sukses mengambil data profile by id",
+        data: profile
+    })
+}
+
+module.exports= {getAllProfile, createProfile, getProfileById}

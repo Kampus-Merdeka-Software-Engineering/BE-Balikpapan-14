@@ -27,7 +27,7 @@ ALTER TABLE profile MODIFY birthdate DATE;
 
 INSERT INTO leaderboard (nama, nilai) VALUES ('salz', '90');
 
-INSERT INTO lessons (image, module) VALUES ('../../back-end-capstone-project-section-balikpapan-group-14/img/angklung.png', "https://drive.google.com/file/d/1mfh6t1jM6eRlCGZYfhIefEKVImq_upaT/view?usp=sharing");
+INSERT INTO lessons (image, module) VALUES ('https://drive.google.com/file/d/16luO4UUX9OUrr7stKYllRzg90kUmAhgo/preview', "https://drive.google.com/file/d/1mfh6t1jM6eRlCGZYfhIefEKVImq_upaT/view?usp=sharing");
 
 INSERT INTO profile (full_name, nisn, birthdate, email) VALUES ('Tsalsabilla Nurfitriyatna putri', '2009994', '2001-12-12', 'tsalsabilla@gmail.com');
 SELECT * FROM lessons;
