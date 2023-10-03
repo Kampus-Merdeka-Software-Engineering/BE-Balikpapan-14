@@ -19,7 +19,6 @@ const createAssignmentSatu = async (assignmentSatu) => {
         const createdAssignmentSatu= await connection.query('INSERT INTO Assignment1(assignment, deadline, date_modified, grade) VALUES (?, ?, ?, ?)',
         [assignmentSatu.assignment, assignmentSatu.deadline, assignmentSatu.date_modified, assignmentSatu.grade]);
         return createdAssignmentSatu
-
     } catch (error) {
         return error
     } finally {

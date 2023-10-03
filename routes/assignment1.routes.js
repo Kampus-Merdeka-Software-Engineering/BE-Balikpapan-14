@@ -4,7 +4,7 @@ const {getAllAssignmentSatu, createAssignmentSatu, getAssignmentSatuById}= requi
 const assignmentSatuRoute = express.Router();
 
 assignmentSatuRoute.get('/assignment1', getAllAssignmentSatu)
-assignmentSatuRoute.post('/assignment', createAssignmentSatu)
-assignmentSatuRoute.get('/assigment1/:id', getAssignmentSatuById)
+assignmentSatuRoute.post('/assignment1', createAssignmentSatu)
+assignmentSatuRoute.get('/assignment1/:id', getAssignmentSatuById)
 
 module.exports= {assignmentSatuRoute}
