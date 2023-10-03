@@ -27,6 +27,6 @@ model Profile {
   full_name      String   
   module String
   nisn String
-  birthdate Date
+  birthdate DateTime
   email String
 }
