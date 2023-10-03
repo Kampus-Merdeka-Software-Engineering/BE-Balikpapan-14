@@ -24,9 +24,16 @@ model Lessons {
 
 model Profile {
   id      Int      @id @default(autoincrement())
-  full_name      String   
-  module String
+  full_name String
   nisn String
   birthdate DateTime
   email String
+}
+
+model Assignment1 {
+  id      Int      @id @default(autoincrement())
+  assignment String   
+  deadline DateTime
+  date_modified DateTime
+  grade Int
 }

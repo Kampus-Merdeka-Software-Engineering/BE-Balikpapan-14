@@ -5,6 +5,7 @@ const cors = require('cors');
 const { leaderboardRoute } = require('./routes/index.routes');
 const { lessonsRoute } = require('./routes/lesson.routes');
 const { profileRoute } = require('./routes/profile.routes');
+const { assignmentSatuRoute } = require('./routes/assignment1.routes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -17,6 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/leaderboard", leaderboardRoute)
 app.use("/", lessonsRoute)
 app.use('/', profileRoute)
+app.use('/', assignmentSatuRoute)
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)
