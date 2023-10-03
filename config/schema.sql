@@ -22,6 +22,9 @@ CREATE TABLE IF NOT EXISTS profile (
     email VARCHAR(300) NOT NULL
 );
 
+DESCRIBE profile;
+ALTER TABLE profile MODIFY birthdate DATE;
+
 INSERT INTO leaderboard (nama, nilai) VALUES ('salz', '90');
 
 INSERT INTO lessons (image, module) VALUES ('../../back-end-capstone-project-section-balikpapan-group-14/img/angklung.png', "https://drive.google.com/file/d/1mfh6t1jM6eRlCGZYfhIefEKVImq_upaT/view?usp=sharing");

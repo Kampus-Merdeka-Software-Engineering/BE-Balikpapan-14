@@ -5,4 +5,7 @@ const lessonsRoute= express.Router();
 
 lessonsRoute.get('/lessons', getAllLessons)
 
+const createLessons = async () => {}
+
+
 module.exports= {lessonsRoute}
