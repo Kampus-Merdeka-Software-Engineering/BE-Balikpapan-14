@@ -1,5 +1,5 @@
 const { pool } = require('../config/database');
-// const { prisma } = require('../config/prisma');
+// const {prisma } = require('../config/prisma');
 
 const getAllLessons = async () => {
     const connection = await pool.getConnection()

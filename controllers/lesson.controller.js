@@ -1,7 +1,7 @@
 const lessonsService = require('../services/lesson.service')
 
 const getAllLessons = async (req,res) => {
-    const [lessons] = await lessonsService.getAllLessons()
+    const lessons = await lessonsService.getAllLessons()
     res.status(200).json({
         message: "Sukses dalam mengambil data",
         data : lessons
