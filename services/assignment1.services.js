@@ -16,7 +16,7 @@ const getAllAssignmentSatu = async () => {
 const createAssignmentSatu = async (assignmentSatu) => {
     const connection = await pool.getConnection()
     try {
-        const createdAssignmentSatu= await connection.query('INSERT INTO assignment1(assignment, deadline, date_modified, grade) VALUES (?, ?, ?, ?)',
+        const createdAssignmentSatu= await connection.query('INSERT INTO assignment1 (assignment, deadline, date_modified, grade) VALUES (?, ?, ?, ?)',
         [assignmentSatu.assignment, assignmentSatu.deadline, assignmentSatu.date_modified, assignmentSatu.grade]);
         return createdAssignmentSatu
     } catch (error) {

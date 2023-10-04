@@ -40,7 +40,7 @@ INSERT INTO lessons (image, module) VALUES ('https://drive.google.com/file/d/16l
 
 INSERT INTO profile (full_name, nisn, birthdate, email) VALUES ('Tsalsabilla Nurfitriyatna putri', '2009994', '2001-12-12', 'tsalsabilla@gmail.com');
 
-INSERT INTO Assignment1 (assignment, deadline, date_modified, grade) VALUES ('Tumbuhan', '2023-10-03 15:30:00', '2023-10-03 15:30:00', 100);
+INSERT INTO assignment1 (assignment, deadline, date_modified, grade) VALUES ('Tumbuhan', '2023-10-03 15:30:00', '2023-10-03 15:30:00', 100);
 
 SELECT * FROM lessons;
 
