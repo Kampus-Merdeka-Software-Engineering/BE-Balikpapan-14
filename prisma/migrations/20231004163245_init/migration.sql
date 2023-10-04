@@ -11,6 +11,7 @@ CREATE TABLE `Leaderboard` (
 CREATE TABLE `Lessons` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `image` VARCHAR(191) NOT NULL,
+    `nama_mapel` VARCHAR(191) NOT NULL,
     `module` VARCHAR(191) NOT NULL,
 
     PRIMARY KEY (`id`)
@@ -20,10 +21,20 @@ CREATE TABLE `Lessons` (
 CREATE TABLE `Profile` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `full_name` VARCHAR(191) NOT NULL,
-    `module` VARCHAR(191) NOT NULL,
     `nisn` VARCHAR(191) NOT NULL,
     `birthdate` DATETIME(3) NOT NULL,
     `email` VARCHAR(191) NOT NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `Assignment1` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `assignment` VARCHAR(191) NOT NULL,
+    `deadline` DATETIME(3) NOT NULL,
+    `date_modified` DATETIME(3) NOT NULL,
+    `grade` INTEGER NOT NULL,
 
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
