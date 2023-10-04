@@ -3,7 +3,7 @@ const {pool}= require('../config/database');
 const getAllAssignmentSatu = async () => {
     const connection = await pool.getConnection()
     try {
-        const [assignmentSatu]= await connection.query('SELECT*FROM assignment1');
+        const assignmentSatu= await connection.query('SELECT*FROM assignment1');
         return assignmentSatu
     }catch (error) {
         console.log(error);

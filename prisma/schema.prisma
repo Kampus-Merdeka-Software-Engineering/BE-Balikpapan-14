@@ -1,24 +1,20 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-
 generator client {
   provider = "prisma-client-js"
 }
-
 
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
-
 model Leaderboard {
   id      Int      @id @default(autoincrement())
   nama      String  
   nilai     Int
 }
-
 
 model Lessons {
   id      Int      @id @default(autoincrement())
@@ -27,7 +23,6 @@ model Lessons {
   module     String
 }
 
-
 model Profile {
   id      Int      @id @default(autoincrement())
   full_name String
@@ -35,7 +30,6 @@ model Profile {
   birthdate DateTime
   email String
 }
-
 
 model Assignment1 {
   id      Int      @id @default(autoincrement())
