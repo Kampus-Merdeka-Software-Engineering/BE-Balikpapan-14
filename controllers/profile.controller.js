@@ -1,4 +1,3 @@
-const {pool} = require('../config/database');
 const profileService= require('../services/profile.services');
 
 const getAllProfile = async(req, res) => {

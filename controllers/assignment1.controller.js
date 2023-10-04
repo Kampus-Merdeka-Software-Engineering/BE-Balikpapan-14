@@ -10,7 +10,7 @@ const getAllAssignmentSatu = async(req, res) => {
 }
 
 const createAssignmentSatu = async(req, res) => {
-    const createdAssigmentSatu= await assignmentSatuService.createAssignmentSatu (req.body)
+    const createdAssignmentSatu= await assignmentSatuService.createAssignmentSatu (req.body)
     res.status(201).json ({
         message: "Sukses menambah data assignment 1",
         data: createdAssignmentSatu

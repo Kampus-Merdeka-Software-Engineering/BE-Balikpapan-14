@@ -10,7 +10,8 @@ CREATE TABLE IF NOT EXISTS leaderboard (
 
 CREATE TABLE IF NOT EXISTS lessons (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    image LONGBLOB NOT NULL,
+    image TEXT NOT NULL,
+    nama_mapel VARCHAR (300) NOT NULL,
     module TEXT NOT NULL
 );
 

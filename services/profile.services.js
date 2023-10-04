@@ -19,7 +19,6 @@ const createProfile = async (profile) => {
         const createdProfile= await connection.query('INSERT INTO profile(full_name, nisn, birthdate, email) VALUES (?, ?, ?, ?)',
         [profile.full_name, profile.nisn, profile.birthdate, profile.email]);
         return createdProfile
-
     } catch (error) {
         return error
     } finally {

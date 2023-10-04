@@ -18,7 +18,8 @@ model Leaderboard {
 
 model Lessons {
   id      Int      @id @default(autoincrement())
-  image      String   
+  image      String  
+  nama_mapel String 
   module     String
 }
 
