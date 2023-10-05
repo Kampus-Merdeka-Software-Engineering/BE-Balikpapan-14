@@ -1,29 +1,27 @@
 const {pool} = require('../config/database');
 const lessonsService= require('../services/lesson.service');
 
-const getAllLessons = async(req, res) => {
-    const [lessons] = await lessonsService.getAllLessons()
-    res.status(200).json({
-        message: "Sukses mengambil data lessons",
+async function getAllLessons(req, res) {
+    try {
+      const lessons = await lessonsService.getAllLessons();
+      res.status(200).json({
+        message: "Successfully fetched all lessons",
         data: lessons
-    })
-}
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  }
 
-const createLessons = async(req, res) => {
-    const createdLessons= await lessonsService.createLessons(req.body)
-    res.status(201).json ({
-        message: "Sukses menambah data lessons",
-        data: createdLessons
-    })
-}
+async function createLessons(req, res) {
+    try {
+      const createdLessons = await lessonsService.createLessons(req.body);
+      res.status(201).json({ createdLessons });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  }
 
-const getLessonsById = async (req, res) => {
-    const [lessons] = await lessonsService.getLessonsById(req.params.id)
-    if (!lessons) res.status(404).json({message: "Data tidak ditemukan"})
-    res.status(200).json({
-        message: "Sukses mengambil data lessons by id",
-        data: lessons
-    })
-}
-
-module.exports= {getAllLessons, createLessons, getLessonsById}
+module.exports= {getAllLessons, createLessons}
