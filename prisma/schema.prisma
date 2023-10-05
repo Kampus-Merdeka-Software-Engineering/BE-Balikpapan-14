@@ -1,17 +1,14 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-
 generator client {
   provider = "prisma-client-js"
 }
-
 
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
-
 
 model Leaderboard {
   id      Int      @id @default(autoincrement())
@@ -19,14 +16,12 @@ model Leaderboard {
   nilai     Int
 }
 
-
 model Lessons {
   id      Int      @id @default(autoincrement())
   image      String  
   nama_mapel String
   module     String
 }
-
 
 model Profile {
   id      Int      @id @default(autoincrement())
@@ -36,11 +31,11 @@ model Profile {
   email String
 }
 
-
 model Assignment1 {
   id      Int      @id @default(autoincrement())
   assignment String  
   deadline DateTime
   date_modified DateTime
-  grade Int
+  grade String
+  status String
 }
