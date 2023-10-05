@@ -1,10 +1,10 @@
 const profileService= require('../services/profile.services');
 
 const getAllProfile = async(req, res) => {
-    const [rows] = await profileService.getAllProfile()
+    const profile = await profileService.getAllProfile()
     res.status(200).json({
         message: "Sukses mengambil data profile",
-        data: rows
+        data: profile
     })
 }
 

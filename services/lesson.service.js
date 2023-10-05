@@ -1,13 +1,12 @@
-const { pool } = require('../config/database');
-// const { prisma } = require('../config/prisma');
+const {pool}= require('../config/database');
 
 const getAllLessons = async () => {
     const connection = await pool.getConnection()
     try {
-        const [lessons] = await connection.query('SELECT*FROM lessons');
+        const lessons= await connection.query('SELECT*FROM lessons');
         return lessons
-    } catch (error){
-        console.error(error)
+    }catch (error) {
+        console.log(error);
         return error
     } finally {
         connection.release()
@@ -17,7 +16,7 @@ const getAllLessons = async () => {
 const createLessons = async (lessons) => {
     const connection = await pool.getConnection()
     try {
-        const createdLessons = await connection.query('INSERT INTO lessons (image, nama_mapel, module) VALUES (?, ?, ?)', 
+        const createdLessons= await connection.query('INSERT INTO lessons (image, nama_mapel, module) VALUES (?, ?, ?)',
         [lessons.image, lessons.nama_mapel, lessons.module]);
         return createdLessons
     } catch (error) {
@@ -25,12 +24,12 @@ const createLessons = async (lessons) => {
     } finally {
         connection.release()
     }
-}
+    }
 
 const getLessonsById = async (id) => {
     const connection = await pool.getConnection()
     try {
-        const [lessons] = await connection.query('SELECT * FROM lessons WHERE id = ?', [id]);
+        const [lessons] = await connection.query ('SELECT*FROM lessons WHERE id= ?', [id]);
         return lessons
     } catch (error) {
         return error
@@ -39,4 +38,4 @@ const getLessonsById = async (id) => {
     }
 }
 
-module.exports = { getAllLessons, createLessons, getLessonsById }
+module.exports= {getAllLessons, createLessons, getLessonsById}

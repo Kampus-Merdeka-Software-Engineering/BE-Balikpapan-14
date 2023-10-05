@@ -3,7 +3,7 @@ const {pool}= require('../config/database');
 const getAllAssignmentSatu = async () => {
     const connection = await pool.getConnection()
     try {
-        const [assignmentSatu]= await connection.query('SELECT*FROM assignment1');
+        const assignmentSatu= await connection.query('SELECT*FROM assignment1');
         return assignmentSatu
     }catch (error) {
         console.log(error);
@@ -16,8 +16,8 @@ const getAllAssignmentSatu = async () => {
 const createAssignmentSatu = async (assignmentSatu) => {
     const connection = await pool.getConnection()
     try {
-        const createdAssignmentSatu= await connection.query('INSERT INTO assignment1(assignment, deadline, date_modified, grade) VALUES (?, ?, ?, ?)',
-        [assignmentSatu.assignment, assignmentSatu.deadline, assignmentSatu.date_modified, assignmentSatu.grade]);
+        const createdAssignmentSatu= await connection.query('INSERT INTO assignment1 (assignment, deadline, date_modified, grade, status) VALUES (?, ?, ?, ?, ?)',
+        [assignmentSatu.assignment, assignmentSatu.deadline, assignmentSatu.date_modified, assignmentSatu.grade, assignmentSatu.status]);
         return createdAssignmentSatu
     } catch (error) {
         return error
