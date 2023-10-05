@@ -36,5 +36,5 @@ model Assignment1 {
   assignment String  
   deadline DateTime
   date_modified DateTime
-  grade Int
+  grade String
 }
