@@ -37,4 +37,5 @@ model Assignment1 {
   deadline DateTime
   date_modified DateTime
   grade String
+  status String
 }
