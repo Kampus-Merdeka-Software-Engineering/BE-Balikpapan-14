@@ -15,7 +15,7 @@ const getAllLeaderboard = async () => {
 const createLeaderboard = async (leaderboard) => {
     const connection = await pool.getConnection()
     try {
-        const createdLeaderboard = await connection.query('INSERT INTO LEADERBOARD (id, nama, nilai) VALUES (?, ?, ?)', [leaderboard.id, leaderboard.nama, leaderboard.nilai]);
+        const createdLeaderboard = await connection.query('INSERT INTO leaderboard (nama, nilai) VALUES (?, ?)', [leaderboard.nama, leaderboard.nilai]);
         return createdLeaderboard
     } catch (error) {
         return error

@@ -39,3 +39,9 @@ model Assignment1 {
   grade String
   status String
 }
+
+model Login {
+  id      Int      @id @default(autoincrement())
+  email String
+  password String
+}
