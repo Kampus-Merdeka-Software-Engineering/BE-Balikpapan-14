@@ -12,6 +12,7 @@ datasource db {
 
 model Leaderboard {
   id      Int      @id @default(autoincrement())
+  medal     String
   nama      String  
   nilai     Int
 }
