@@ -13,7 +13,7 @@ datasource db {
 model Leaderboard {
   id      Int      @id @default(autoincrement())
   nama      String  
-  nilai     Int
+  nilai Int
 }
 
 model Lessons {

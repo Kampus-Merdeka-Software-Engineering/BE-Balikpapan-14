@@ -16,7 +16,7 @@ async function getAllLeaderboard() {
             data: {
                 id: leaderboard.id,
                 nama: leaderboard.nama,
-                nilai: leaderboard.nilai,
+                nilai: Number(leaderboard.nilai),
             }
           })
           return createdLeaderboard;
