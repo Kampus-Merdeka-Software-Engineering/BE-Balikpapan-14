@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(logger)
 
 // rute untuk leaderboard
-app.use("/leaderboard", leaderboardRoute)
+app.use("/", leaderboardRoute)
 app.use("/", lessonsRoute)
 app.use('/', profileRoute)
 app.use('/', assignmentSatuRoute)
