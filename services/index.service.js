@@ -14,9 +14,9 @@ async function getAllLeaderboard() {
         try {
           const createdLeaderboard = await prisma.leaderboard.create({
             data: {
-                id: leaderboard.id,
+                id: Number(leaderboard.id),
                 nama: leaderboard.nama,
-                nilai: leaderboard.nilai,
+                nilai: Number(leaderboard.nilai),
             }
           })
           return createdLeaderboard;
