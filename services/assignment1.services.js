@@ -1,41 +1,30 @@
-const {pool}= require('../config/database');
+// const {pool}= require('../config/database');
+const { prisma } = require('../config/prisma');
 
-const getAllAssignmentSatu = async () => {
-    const connection = await pool.getConnection()
+async function getAllAssignmentSatu() {
     try {
-        const assignmentSatu= await connection.query('SELECT*FROM assignment1');
-        return assignmentSatu
-    }catch (error) {
-        console.log(error);
-        return error
-    } finally {
-        connection.release()
-    }
-}
-
-const createAssignmentSatu = async (assignmentSatu) => {
-    const connection = await pool.getConnection()
-    try {
-        const createdAssignmentSatu= await connection.query('INSERT INTO assignment1 (assignment, deadline, date_modified, grade, status) VALUES (?, ?, ?, ?, ?)',
-        [assignmentSatu.assignment, assignmentSatu.deadline, assignmentSatu.date_modified, assignmentSatu.grade, assignmentSatu.status]);
-        return createdAssignmentSatu
+      const assignment1 = await prisma.assignment1.findMany();
+      return assignment1;
     } catch (error) {
-        return error
-    } finally {
-        connection.release()
+      console.log(error);
     }
-    }
+  }
 
-const getAssignmentSatuById = async (id) => {
-    const connection = await pool.getConnection()
-    try {
-        const [assignmentSatu] = await connection.query ('SELECT*FROM assignment1 WHERE id= ?', [id]);
-        return assignmentSatu
-    } catch (error) {
-        return error
-    } finally {
-        connection.release()
-    }
-}
+    async function createAssignmentSatu(assignment1) {
+        try {
+          const createdAssignmentSatu = await prisma.assignment1.create({
+            data: {
+                assignment: assignment1.assignment,
+                deadline: assignment1.deadline,
+                date_modified: assignment1.date_modified,
+                grade: assignment1.grade,
+                status: assignment1.status,
+            }
+          })
+          return createdAssignmentSatu;
+        } catch (error) {
+          throw new Error(error)
+        }
+      }
 
-module.exports= {getAllAssignmentSatu, createAssignmentSatu, getAssignmentSatuById}
+module.exports= {getAllAssignmentSatu, createAssignmentSatu}
