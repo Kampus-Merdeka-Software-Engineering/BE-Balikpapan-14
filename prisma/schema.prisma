@@ -12,14 +12,14 @@ datasource db {
 
 model Leaderboard {
   id      Int      @id @default(autoincrement())
-  nama      String   
+  nama      String  
   nilai     Int
 }
 
 model Lessons {
   id      Int      @id @default(autoincrement())
   image      String  
-  nama_mapel String 
+  nama_mapel String
   module     String
 }
 
@@ -33,8 +33,15 @@ model Profile {
 
 model Assignment1 {
   id      Int      @id @default(autoincrement())
-  assignment String   
+  assignment String  
   deadline DateTime
   date_modified DateTime
-  grade Int
+  grade String
+  status String
+}
+
+model Login {
+  id      Int      @id @default(autoincrement())
+  email String
+  password String
 }

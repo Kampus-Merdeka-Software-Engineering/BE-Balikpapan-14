@@ -1,10 +1,9 @@
-const express = require('express');
-const leaderboardController = require('../controllers/index.controller')
-
+const express= require('express');
+const {pool}= require('../config/database');
+const {getAllLeaderboard, createLeaderboard}= require('../controllers/index.controller');
 const leaderboardRoute = express.Router();
 
-leaderboardRoute.get('/', leaderboardController.getAllLeaderboard)
-leaderboardRoute.post('/', leaderboardController.createLeaderboard)
-leaderboardRoute.get('/:id', leaderboardController.getLeaderboardById)
+leaderboardRoute.get('/leaderboard', getAllLeaderboard)
+leaderboardRoute.post('/leaderboard', createLeaderboard)
 
-module.exports = { leaderboardRoute }
+module.exports= {leaderboardRoute}

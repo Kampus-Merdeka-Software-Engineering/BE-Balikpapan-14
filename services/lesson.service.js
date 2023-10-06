@@ -1,42 +1,28 @@
-const { pool } = require('../config/database');
-// const { prisma } = require('../config/prisma');
+// const {pool}= require('../config/database');
+const { prisma } = require('../config/prisma');
 
-const getAllLessons = async () => {
-    const connection = await pool.getConnection()
+async function getAllLessons() {
     try {
-        const [lessons] = await connection.query('SELECT*FROM lessons');
-        return lessons
-    } catch (error){
-        console.error(error)
-        return error
-    } finally {
-        connection.release()
-    }
-}
-
-const createLessons = async (lessons) => {
-    const connection = await pool.getConnection()
-    try {
-        const createdLessons = await connection.query('INSERT INTO lessons (image, nama_mapel, module) VALUES (?, ?, ?)', 
-        [lessons.image, lessons.nama_mapel, lessons.module]);
-        return createdLessons
+      const lessons = await prisma.lessons.findMany();
+      return lessons;
     } catch (error) {
-        return error
-    } finally {
-        connection.release()
+      console.log(error);
     }
-}
+  }
 
-const getLessonsById = async (id) => {
-    const connection = await pool.getConnection()
-    try {
-        const [lessons] = await connection.query('SELECT * FROM lessons WHERE id = ?', [id]);
-        return lessons
-    } catch (error) {
-        return error
-    } finally {
-        connection.release()
-    }
-}
+    async function createLessons(lessons) {
+        try {
+          const createdLessons = await prisma.lessons.create({
+            data: {
+                image: lessons.image,
+                nama_mapel: lessons.nama_mapel,
+                module: lessons.module,
+            }
+          })
+          return createdLessons;
+        } catch (error) {
+          throw new Error(error)
+        }
+      }
 
-module.exports = { getAllLessons, createLessons, getLessonsById }
+module.exports= {getAllLessons, createLessons}
