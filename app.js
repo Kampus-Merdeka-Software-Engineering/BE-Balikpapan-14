@@ -7,6 +7,8 @@ const { lessonsRoute } = require('./routes/lesson.routes');
 const { profileRoute } = require('./routes/profile.routes');
 const { assignmentSatuRoute } = require('./routes/assignment1.routes');
 const { logger } = require('./middleware/logger');
+const { loginRoute } = require('./routes/login.routes');
+const { scoreRoute } = require('./routes/score.routes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -20,10 +22,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(logger)
 
 // rute untuk leaderboard
-app.use("/leaderboard", leaderboardRoute)
+app.use("/", leaderboardRoute)
 app.use("/", lessonsRoute)
 app.use('/', profileRoute)
 app.use('/', assignmentSatuRoute)
+app.use('/', loginRoute)
+app.use('/', scoreRoute)
 
 // Error handling middleware
 app.use((err, req, res, next) => {

@@ -1,39 +1,28 @@
-const { pool } = require('../config/database');
+// const {pool}= require('../config/database');
 const { prisma } = require('../config/prisma');
 
-const getAllLeaderboard = async () => {
-    // const connection = await pool.getConnection()
+async function getAllLeaderboard() {
     try {
-        const leaderboard = prisma.leaderboard.findMany()
-        return leaderboard
-    } catch (error){
-        console.error(error)
-        return error
-    }
-}
-
-const createLeaderboard = async (leaderboard) => {
-    const connection = await pool.getConnection()
-    try {
-        const createdLeaderboard = await connection.query('INSERT INTO LEADERBOARD (id, nama, nilai) VALUES (?, ?, ?)', [leaderboard.id, leaderboard.nama, leaderboard.nilai]);
-        return createdLeaderboard
+      const leaderboard = await prisma.leaderboard.findMany();
+      return leaderboard;
     } catch (error) {
-        return error
-    } finally {
-        connection.release()
+      console.log(error);
     }
-}
+  }
 
-const getLeaderboardById = async (id) => {
-    const connection = await pool.getConnection()
-    try {
-        const [leaderboard] = await connection.query('SELECT * FROM  LEADERBOARD WHERE id = ?', [id]);
-        return leaderboard
-    } catch (error) {
-        return error
-    } finally {
-        connection.release()
-    }
-}
+    async function createLeaderboard(leaderboard) {
+        try {
+          const createdLeaderboard = await prisma.leaderboard.create({
+            data: {
+                medal: leaderboard.medal,
+                nama: leaderboard.nama,
+                nilai: Number(leaderboard.nilai),
+            }
+          })
+          return createdLeaderboard;
+        } catch (error) {
+          throw new Error(error)
+        }
+      }
 
-module.exports = { getAllLeaderboard, createLeaderboard, getLeaderboardById }
+module.exports= {getAllLeaderboard, createLeaderboard}
